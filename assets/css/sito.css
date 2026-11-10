@@ -576,3 +576,29 @@ button { font: inherit; color: inherit; }
   .orizzontale .card-s { width: max(320px, calc(clamp(300px, calc(100svh - 370px), 560px) * .8)); }
 }
 @media (max-width: 899px) { .orizzontale .card-s { width: 78vw; max-width: 380px; } }
+
+/* Dove dormire, ritmo: spazi in proporzione all'altezza dello schermo.
+   Testata + 5svh | titolo | 6svh | card (lo spazio che resta) | 5svh | Quanti siete? | 7svh */
+.orizzontale .titolo-xl { font-size: clamp(2.2rem, min(4.6vw, 7.2svh), 4.4rem); margin: 0; max-width: none; }
+.orizzontale__lato { max-width: 340px; display: grid; gap: 14px; justify-items: start; }
+.orizzontale__lato p { margin: 0; font-weight: 500; }
+.orizzontale .intesta { align-items: end; margin-bottom: clamp(28px, 6svh, 64px); }
+.orizzontale .quanti { margin-top: clamp(24px, 5svh, 56px); }
+@media (min-width: 900px) {
+  .orizzontale__schermo { justify-content: flex-start; padding-block: calc(var(--testata-h) + clamp(16px, 5svh, 56px)) clamp(28px, 7svh, 72px); }
+  .orizzontale__vetrina { flex: 1; min-height: 0; display: flex; }
+  .orizzontale__binario { height: 100%; }
+  .orizzontale .card-s { height: 100%; max-height: 560px; width: auto; aspect-ratio: 4 / 5; min-width: 300px; align-self: center; }
+}
+@media (max-width: 899px) { .orizzontale__lato { max-width: none; } }
+@media (min-width: 900px) {
+  .orizzontale .intesta { flex-wrap: nowrap; }
+  .orizzontale .intesta > .orizzontale__lato { flex: 0 1 340px; max-width: 340px; }
+}
+/* Ritmo a modulo unico: 8svh tra titolo, card, «Quanti siete?» e fondo; sopra 11svh. */
+.orizzontale { --modulo: clamp(32px, 8svh, 80px); }
+.orizzontale .intesta { margin-bottom: var(--modulo); }
+.orizzontale .quanti { margin-top: calc(var(--modulo) * .75); }
+@media (min-width: 900px) {
+  .orizzontale__schermo { padding-block: clamp(56px, 11svh, 110px) var(--modulo); }
+}
