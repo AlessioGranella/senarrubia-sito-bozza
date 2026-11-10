@@ -12,7 +12,7 @@ button { font: inherit; color: inherit; }
 .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 :root {
-  --testata-h: 76px;
+  --testata-h: 88px;
   --ease: cubic-bezier(.22, .8, .2, 1);
   --se-fs-mega: clamp(3.2rem, 9vw, 8.5rem);
   --se-container: 1320px;
@@ -103,7 +103,7 @@ button { font: inherit; color: inherit; }
 .hero__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.12); }
 .hero__media img.is-attiva { opacity: 1; }
 .hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(40, 14, 10, .45) 0%, rgba(40, 14, 10, 0) 28%, rgba(40, 14, 10, 0) 45%, rgba(40, 14, 10, .62) 100%); }
+  background: linear-gradient(180deg, rgba(40, 14, 10, .6) 0%, rgba(40, 14, 10, .25) 14%, rgba(40, 14, 10, 0) 30%, rgba(40, 14, 10, 0) 45%, rgba(40, 14, 10, .62) 100%); }
 .hero__corpo { position: absolute; z-index: 2; left: 0; right: 0; bottom: clamp(150px, 22vh, 210px); }
 .hero__titolo { font-size: var(--se-fs-mega); font-weight: var(--se-fw-black); line-height: .92; letter-spacing: -.035em; color: inherit; margin: 0; }
 .hero__titolo em { font-style: italic; font-weight: 400; }

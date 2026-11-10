@@ -192,7 +192,7 @@
       .from(sp.lines, { yPercent: 110, duration: 1.2, stagger: .12, ease: 'power4.out' }, .2)
       .from('.hero__sotto, .hero__punti', { opacity: 0, y: 20, duration: .9, ease: 'power3.out' }, .8)
       .from('.prenota', { y: 60, opacity: 0, duration: 1.1, ease: 'power3.out' }, .7)
-      .from('.testata', { y: -30, opacity: 0, duration: .9, ease: 'power3.out' }, .5);
+      .from('.testata > *', { y: -24, opacity: 0, duration: .9, stagger: .08, ease: 'power3.out', clearProps: 'transform,opacity' }, .5);
     // il contenuto della hero si allontana mentre si scorre
     gsap.to('.hero__media', { yPercent: 18, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom top', scrub: true } });
     gsap.to('.hero__corpo', { yPercent: -30, opacity: 0, ease: 'none', scrollTrigger: { trigger: hero, start: 'top top', end: '70% top', scrub: true } });
