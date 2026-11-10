@@ -604,3 +604,4 @@ button { font: inherit; color: inherit; }
 @media (min-width: 900px) {
   .orizzontale__schermo { padding-block: clamp(56px, 11svh, 110px) var(--modulo); }
 }
+.orari__voci .pallino { color: var(--se-bianco); }
