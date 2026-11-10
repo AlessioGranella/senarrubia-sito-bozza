@@ -22,9 +22,11 @@ button { font: inherit; color: inherit; }
 .contenitore { max-width: var(--se-container); margin: 0 auto; padding-inline: var(--se-gutter); }
 
 /* ------------------------------------------------------------ TIPO */
-.occhiello { display: inline-flex; align-items: center; gap: 10px; font-weight: var(--se-fw-bold);
+.occhiello { display: inline-flex; align-items: center; gap: 9px; font-weight: var(--se-fw-bold);
   font-size: var(--se-fs-label); text-transform: uppercase; letter-spacing: var(--se-ls-label); color: var(--se-fg-accent); margin: 0 0 var(--se-space-5); }
-.occhiello::before { content: ""; width: 28px; height: 2px; background: currentColor; }
+/* Al posto della linetta, una delle tre stelle del logo (estratta da logo-ufficiale.svg), tinta col colore del testo. */
+.occhiello::before { content: ""; width: 13px; aspect-ratio: 20.44 / 19.44; flex: none; background: currentColor; translate: 0 -1px;
+  -webkit-mask: url(../brand/stella.svg) center / contain no-repeat; mask: url(../brand/stella.svg) center / contain no-repeat; }
 .titolo-xl { font-size: clamp(2.4rem, 5.2vw, 4.75rem); font-weight: var(--se-fw-black); line-height: 1.02; letter-spacing: -.025em; color: var(--se-fg-title); margin: 0 0 var(--se-space-6); max-width: 18ch; }
 .titolo-l { font-size: clamp(1.9rem, 3.2vw, 3rem); font-weight: var(--se-fw-black); line-height: 1.06; letter-spacing: -.02em; color: var(--se-fg-title); margin: 0 0 var(--se-space-5); }
 .titolo-xl em, .titolo-l em { font-style: italic; font-weight: 500; color: var(--se-fg-accent); }
