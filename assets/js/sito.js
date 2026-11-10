@@ -256,7 +256,7 @@
         scrollTrigger: { trigger: orz, start: 'top top', end: () => '+=' + dist(), pin: true, scrub: .8, invalidateOnRefresh: true, anticipatePin: 1 } });
       bin.querySelectorAll('.card-s img').forEach(img => gsap.fromTo(img, { scale: 1.2 }, { scale: 1, ease: 'none', scrollTrigger: { trigger: orz, start: 'top top', end: () => '+=' + dist(), scrub: true } }));
     });
-    mm.add('(max-width: 899px)', () => { orz.style.overflowX = 'auto'; orz.style.scrollSnapType = 'x mandatory'; bin.querySelectorAll('.card-s').forEach(c => c.style.scrollSnapAlign = 'center'); });
+    mm.add('(max-width: 899px)', () => { const v = orz.querySelector('.orizzontale__vetrina'); v.style.overflowX = 'auto'; v.style.scrollSnapType = 'x mandatory'; bin.querySelectorAll('.card-s').forEach(c => c.style.scrollSnapAlign = 'center'); });
   }
 
   // PANNELLI: spiaggia, pineta, oasi si impilano uno sull'altro

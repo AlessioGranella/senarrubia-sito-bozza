@@ -556,3 +556,23 @@ button { font: inherit; color: inherit; }
 .pannello__img img { object-position: 50% 65%; }
 @media (max-width: 900px) { .segmento--tipo .ic { display: none; } .segmento--tipo button { padding: 10px 14px; } }
 @media (max-width: 900px) { .solo-largo { display: none; } }
+
+/* Dove dormire: titolo, card e «Quanti siete?» stanno in un solo schermo che si ferma.
+   Le card prendono l'altezza che resta, così non c'è vuoto sopra e sotto. */
+.orizzontale__schermo { display: flex; flex-direction: column; padding-block: clamp(64px, 8vw, 110px); }
+.orizzontale .intesta { margin-bottom: clamp(28px, 3vw, 40px); width: 100%; }
+.orizzontale .titolo-l { margin-bottom: 0; max-width: none; }
+.orizzontale .quanti { margin-top: clamp(28px, 3vw, 40px); width: 100%; }
+@media (min-width: 900px) {
+  .orizzontale__schermo { height: 100svh; padding-block: calc(var(--testata-h) + 16px) 32px; justify-content: center; }
+  .orizzontale .card-s { width: auto; height: clamp(300px, calc(100svh - 370px), 560px); }
+}
+@media (max-width: 899px) { .orizzontale__vetrina { padding-bottom: 8px; } }
+.orizzontale .intesta > div { max-width: none; }
+.card-s__dati { flex-wrap: wrap; gap: 6px 14px; }
+.card-s__dati span { white-space: nowrap; }
+@media (min-width: 900px) {
+  /* su schermi bassi la card si allarga invece di stringersi: mai sotto i 320 px */
+  .orizzontale .card-s { width: max(320px, calc(clamp(300px, calc(100svh - 370px), 560px) * .8)); }
+}
+@media (max-width: 899px) { .orizzontale .card-s { width: 78vw; max-width: 380px; } }
