@@ -1,0 +1,149 @@
+/* ============================================================================
+   S'ENA ARRUBIA CAMPING VILLAGE — Design System
+   Fondamenta: colore, tipografia, spazio, marchio.
+
+   ◆ = dal «Brand Book 2024 — Linee guida di utilizzo» (DROP, 28 pp.,
+   ../../../Sito/Brand/): normativo, non si tocca.
+   ★ = indicazione di DROP successiva al brandbook (Raleway come carattere).
+   Il resto è derivato, per gli usi che il brandbook non copre (web, UI).
+
+   Fonte di verità dei token. Specchio JS in ../tokens.ts: allinearli a mano.
+   ========================================================================== */
+
+/* -------------------------------------------------------------- CARATTERE
+   ★ Raleway, unico carattere della comunicazione (OFL, Google Fonts).
+   Variabile: un file copre tutti i pesi 100–900, più il corsivo.
+   Il logotipo NON è Raleway: è Signika ridisegnata (◆ p.12), ed è in curve. */
+
+@font-face { font-family: 'Raleway'; font-style: normal; font-weight: 100 900; font-display: swap;
+  src: url('../font/Raleway-VariableFont_wght.ttf') format('truetype'); }
+@font-face { font-family: 'Raleway'; font-style: italic; font-weight: 100 900; font-display: swap;
+  src: url('../font/Raleway-Italic-VariableFont_wght.ttf') format('truetype'); }
+
+:root {
+  /* ===================================================== PALETTE — ◆ p.17-18
+     Primari: rosso minio e sabbia. Secondari: rosso cotto e bianco.
+     Terziari: acqua e cielo. Il nero esiste solo per il logo monocromatico
+     (◆ p.6, 9) e, derivato, per il testo corrente. */
+
+  --se-minio:  #D85844;  /* ◆ primario · Pantone 2027 C · CMYK 10 76 72 2 */
+  --se-sabbia: #EBC6A4;  /* ◆ primario · Pantone 719 C  · CMYK 8 25 38 1 */
+  --se-cotto:  #A4382E;  /* ◆ secondario · Pantone 7627 C · CMYK 25 86 80 20 */
+  --se-bianco: #FFFFFF;  /* ◆ secondario · CMYK 0 0 0 0 */
+  --se-acqua:  #D9EEF6;  /* ◆ terziario · Pantone P 115-2 C · CMYK 18 0 4 0 */
+  --se-cielo:  #79CADB;  /* ◆ terziario · Pantone 2197 C · CMYK 54 0 15 0 */
+  --se-nero:   #000000;  /* ◆ solo logo monocromatico; derivato: testo corrente */
+
+  /* ------------------------------------------------ TOKEN SEMANTICI
+     I componenti si agganciano solo a questi, mai ai colori in chiaro. */
+
+  --se-bg:            var(--se-bianco);  /* fondo di pagina (◆ le pagine del brandbook sono bianche) */
+  --se-bg-soft:       var(--se-sabbia);  /* aperture, fasce calde */
+  --se-bg-sky:        var(--se-acqua);   /* fasce leggere: mare, oasi, info pratiche */
+  --se-bg-brand:      var(--se-minio);   /* fasce piene, copertine (◆ copertina brandbook) */
+  --se-bg-dark:       var(--se-cotto);   /* fasce profonde, piede */
+  --se-bg-accent:     var(--se-cielo);   /* fasce estive: piscina, spiaggia */
+
+  --se-fg:            var(--se-nero);    /* testo corrente */
+  --se-fg-title:      var(--se-cotto);   /* titoli (6,6:1 su bianco) */
+  --se-fg-accent:     var(--se-minio);   /* titoli grandi, etichette: solo ≥ 24 px o maiuscolo spaziato bold */
+  --se-fg-muted:      color-mix(in srgb, var(--se-nero) 68%, var(--se-bianco));
+  --se-on-brand:      var(--se-bianco);  /* testo su minio e cotto */
+  --se-on-brand-muted: color-mix(in srgb, var(--se-bianco) 80%, transparent);
+
+  --se-border:        color-mix(in srgb, var(--se-sabbia) 70%, var(--se-cotto));
+  --se-border-soft:   color-mix(in srgb, var(--se-sabbia) 55%, var(--se-bianco));
+  --se-focus:         var(--se-cotto);
+
+  /* ---------------------------------------------------- FAMIGLIA ★ */
+  --se-font: 'Raleway', 'Helvetica Neue', Arial, sans-serif;
+
+  /* ----------------------------------------------- SCALA TIPOGRAFICA
+     Derivata. Corpo 17 px, rapporto ~1,33. I titoli del brandbook sono
+     bold, grandi, in frase (◆ «Il logo e declinazioni»). */
+  --se-fs-display: clamp(2.75rem, 5vw + 1rem, 5rem);
+  --se-fs-h1:      clamp(2.25rem, 3vw + 1rem, 3.5rem);
+  --se-fs-h2:      clamp(1.75rem, 2vw + 1rem, 2.5rem);
+  --se-fs-h3:      1.5rem;
+  --se-fs-h4:      1.1875rem;
+  --se-fs-lead:    1.25rem;
+  --se-fs-body:    1.0625rem;  /* 17 px */
+  --se-fs-small:   0.9375rem;
+  --se-fs-label:   0.8125rem;
+  --se-fs-caption: 0.75rem;
+
+  --se-fw-body: 400; --se-fw-medium: 500; --se-fw-semi: 600; --se-fw-bold: 700; --se-fw-black: 800;
+
+  --se-lh-tight: 1.08;
+  --se-lh-head:  1.18;
+  --se-lh-body:  1.6;
+
+  /* Maiuscolo spaziato, come «CAMPING  VILLAGE» nel logo (◆ p.11 payoff). */
+  --se-ls-label: 0.16em;
+  --se-ls-title: -0.01em;
+
+  /* ------------------------------------------------------- SPAZIO
+     Derivato. Base 4 px. */
+  --se-space-1: 4px;   --se-space-2: 8px;   --se-space-3: 12px;  --se-space-4: 16px;
+  --se-space-5: 20px;  --se-space-6: 24px;  --se-space-8: 32px;  --se-space-10: 40px;
+  --se-space-12: 48px; --se-space-16: 64px; --se-space-20: 80px; --se-space-24: 96px;
+
+  --se-container: 1200px;
+  --se-gutter: clamp(16px, 4vw, 48px);
+
+  /* Angoli: morbidi come le schede colore del brandbook (◆ p.17-19). */
+  --se-radius-sm: 6px;
+  --se-radius-md: 12px;
+  --se-radius-lg: 20px;
+  --se-radius-pill: 999px;
+
+  /* ------------------------------------------------------ MARCHIO — ◆ p.13-14 */
+  --se-logo-min-stampa: 20mm;  /* ◆ larghezza minima del logo intero in stampa */
+  --se-logo-min-schermo: 60px; /* ◆ larghezza minima del logo intero a schermo */
+  /* ◆ p.13 area di rispetto = altezza della parola CAMPING del payoff.
+     Nel vettoriale: CAMPING è alta 40 su un logo largo 720 → 5,6% della larghezza. */
+  --se-logo-rispetto: 0.056;
+
+  --se-shadow-sm: 0 1px 2px rgba(164, 56, 46, .10);
+  --se-shadow-md: 0 10px 30px rgba(164, 56, 46, .14);
+}
+
+/* ===================================================================== BASE */
+
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--se-bg);
+  color: var(--se-fg);
+  font-family: var(--se-font);
+  font-size: var(--se-fs-body);
+  font-weight: var(--se-fw-body);
+  line-height: var(--se-lh-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, .se-titolo {
+  font-family: var(--se-font);
+  color: var(--se-fg-title);
+  line-height: var(--se-lh-head);
+  letter-spacing: var(--se-ls-title);
+  margin: 0 0 var(--se-space-4);
+  font-weight: var(--se-fw-bold);
+}
+h1 { font-size: var(--se-fs-h1); font-weight: var(--se-fw-black); color: var(--se-fg-accent); line-height: var(--se-lh-tight); }
+h2 { font-size: var(--se-fs-h2); }
+h3 { font-size: var(--se-fs-h3); }
+h4 { font-size: var(--se-fs-h4); }
+p  { margin: 0 0 var(--se-space-4); max-width: 68ch; }
+a  { color: var(--se-cotto); text-underline-offset: 3px; }
+:focus-visible { outline: 2px solid var(--se-focus); outline-offset: 2px; }
+
+.se-lead  { font-size: var(--se-fs-lead); line-height: 1.5; font-weight: var(--se-fw-medium); }
+.se-small { font-size: var(--se-fs-small); color: var(--se-fg-muted); }
+
+/* Etichetta: maiuscolo spaziato, come il payoff CAMPING VILLAGE. */
+.se-etichetta {
+  display: inline-block; font-weight: var(--se-fw-bold);
+  font-size: var(--se-fs-label); text-transform: uppercase; letter-spacing: var(--se-ls-label);
+  color: var(--se-fg-accent); margin-bottom: var(--se-space-3);
+}
