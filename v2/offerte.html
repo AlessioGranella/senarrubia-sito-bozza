@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Offerte · S'Ena Arrubia Camping Village</title>
+<meta name="description" content="Le offerte del campeggio S'Ena Arrubia: fino al 30% in bassa stagione, una notte gratis, -25% prenotando entro febbraio.">
+<meta name="robots" content="noindex">
+<!-- BOZZA V2 · richiesta del cliente: «sezione offerte». Testi e date dalla pagina offerte attuale (2026). -->
+<link rel="icon" href="../assets/brand/pittogramma-ufficiale.svg">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/sito.css">
+<link rel="stylesheet" href="css/v2.css">
+</head>
+<body>
+<div data-testata></div>
+
+<main>
+  <section class="apertura" style="height:62svh">
+    <div class="apertura__img"><img src="../assets/foto/ds-spiaggia-relax.jpg" alt="Relax in spiaggia al tramonto"></div>
+    <div class="apertura__corpo contenitore">
+      <nav class="briciole" aria-label="Sei qui"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Offerte</span></nav>
+      <h1>Le offerte della stagione</h1>
+      <p>Piscina, spiaggia e animazione sono sempre comprese. Scegli quando partire: ogni offerta vale per tutte le sistemazioni.</p>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-off">
+    <div class="contenitore">
+      <div class="intesta">
+        <div><p class="occhiello">Stagione <span data-stagione="anno"></span></p><h2 class="titolo-l" id="t-off" data-righe>Quando conviene partire</h2></div>
+        <span class="nota-bozza appare">Offerte e date della stagione 2026: da aggiornare</span>
+      </div>
+      <div class="offerte-l" id="offerte"></div>
+
+      <div class="sapere" style="margin-top:clamp(40px,5vw,64px)">
+        <div class="appare"><h3><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#spunta"/></svg>Rimborsabile</h3><p>Se cambi idea puoi cancellare secondo le condizioni della tariffa.</p></div>
+        <div class="appare is-avviso"><h3><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#info"/></svg>Non rimborsabile</h3><p>Costa meno, ma il soggiorno non si rimborsa se annulli.</p></div>
+        <div class="appare"><h3><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#no"/></svg>Non cumulabili</h3><p>Le offerte non si sommano tra loro: il sistema applica quella valida per le tue date.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-piede></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/dati.js"></script>
+<script>
+(function () {
+  // la barra va da inizio maggio a fine ottobre
+  const giorno = md => { const [m, d] = md.split('-').map(Number); return (Date.UTC(2027, m - 1, d) - Date.UTC(2027, 4, 1)) / 864e5; };
+  const tot = giorno('10-31');
+  const it = md => { const [m, d] = md.split('-').map(Number); return new Date(2027, m - 1, d).toLocaleDateString('it-IT', { day: 'numeric', month: 'short' }); };
+  const ic = n => `<svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#${n}"/></svg>`;
+  document.getElementById('offerte').innerHTML = OFFERTE.map((o, k) => `
+    <article class="offerta appare${k === 0 ? ' offerta--evid' : ''}">
+      <div class="offerta__grande">${o.grande}</div>
+      <div><h3>${o.titolo}</h3><p style="margin-top:6px">${o.testo}</p></div>
+      <div class="barra-st" aria-label="Periodo: ${o.periodi.map(([a, b]) => `dal ${it(a)} al ${it(b)}`).join(' e ')}">
+        <div class="barra-st__linea">${o.periodi.map(([a, b]) => `<span class="barra-st__tratto" style="left:${giorno(a) / tot * 100}%;width:${(giorno(b) - giorno(a)) / tot * 100}%"></span>`).join('')}</div>
+        <div class="barra-st__mesi" aria-hidden="true"><span>Mag</span><span>Giu</span><span>Lug</span><span>Ago</span><span>Set</span><span>Ott</span></div>
+        <div class="barra-st__date">${o.periodi.map(([a, b]) => `${it(a)} – ${it(b)}`).join(' · ')}</div>
+      </div>
+      <div class="offerta__etichette"><span${o.rimborsabile ? '' : ' class="is-no"'}>${o.rimborsabile ? 'Rimborsabile' : 'Non rimborsabile'}</span><span>${o.sotto}</span>${o.entro ? `<span>Prenota entro il ${o.entro}</span>` : ''}</div>
+      <div class="offerta__piede"><a class="btn ${k === 0 ? 'btn--bianco' : 'btn--pieno'}" href="${MOTORE.link()}" target="_blank" rel="noopener">Prenota con l’offerta ${ic('freccia')}</a></div>
+    </article>`).join('');
+  if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches)
+    addEventListener('load', () => gsap.utils.toArray('.barra-st__tratto').forEach(t => gsap.from(t, { scaleX: 0, transformOrigin: 'left', duration: 1.1, ease: 'power3.inOut', scrollTrigger: { trigger: t, start: 'top 85%' } })));
+})();
+</script>
+<script src="js/sito.js"></script>
+</body>
+</html>

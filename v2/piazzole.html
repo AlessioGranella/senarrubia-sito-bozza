@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Piazzole per tende, roulotte e camper · S'Ena Arrubia Camping Village</title>
+<meta name="description" content="Piazzole S, M e L nella pineta di Arborea per tende, roulotte e camper: misure, zone, distanze da spiaggia, piscina e servizi.">
+<meta name="robots" content="noindex">
+<!-- BOZZA V2 · rif. capasquali.it/it/camping: divisione per misura + mappa come base -->
+<link rel="icon" href="../assets/brand/pittogramma-ufficiale.svg">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/sito.css">
+<link rel="stylesheet" href="css/v2.css">
+</head>
+<body>
+<div data-testata></div>
+
+<main>
+  <section class="apertura" style="height:66svh">
+    <div class="apertura__img"><img src="../assets/foto/ds-camper.jpg" alt="Un camper parcheggiato all'ombra della pineta"></div>
+    <div class="apertura__corpo contenitore">
+      <nav class="briciole" aria-label="Sei qui"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Piazzole</span></nav>
+      <h1>Piazzole S, M e L</h1>
+      <p>Per tende, roulotte e camper, all’ombra della pineta. Tre misure, quattro zone: dicci con cosa viaggi e ti mostriamo dove stai meglio.</p>
+    </div>
+  </section>
+
+  <!-- CON COSA VIAGGI ------------------------------------------------------>
+  <section class="sezione" aria-labelledby="t-mezzo" style="padding-bottom:clamp(60px,8vw,110px)">
+    <div class="contenitore">
+      <div class="intesta" style="margin-bottom:28px">
+        <div><p class="occhiello">Trova la misura</p><h2 class="titolo-l" id="t-mezzo" data-righe>Con cosa viaggi?</h2></div>
+        <p class="sotto-titolo appare">Le piazzole sono divise per misura, in base all’ingombro del mezzo. Ognuna ospita una sola unità: tenda, roulotte o camper.</p>
+      </div>
+      <div class="mezzi appare" role="group" aria-label="Il tuo mezzo" id="mezzi">
+        <button type="button" class="mezzo" data-mezzo="tenda" aria-pressed="false"><img src="../assets/icone/tenda.svg" alt=""><span>Tenda piccola<small>Canadese, igloo, moto</small></span></button>
+        <button type="button" class="mezzo" data-mezzo="tenda-grande" aria-pressed="false"><img src="../assets/icone/tenda.svg" alt=""><span>Tenda familiare<small>Con veranda o più camere</small></span></button>
+        <button type="button" class="mezzo" data-mezzo="roulotte" aria-pressed="false"><img src="../assets/icone/camper-roulotte.svg" alt=""><span>Roulotte<small>Senza veranda</small></span></button>
+        <button type="button" class="mezzo" data-mezzo="camper" aria-pressed="false"><img src="../assets/icone/camper-roulotte.svg" alt=""><span>Camper<small>Fino a 7 metri</small></span></button>
+        <button type="button" class="mezzo" data-mezzo="camper-grande" aria-pressed="false"><img src="../assets/icone/camper-roulotte.svg" alt=""><span>Camper grande<small>Oltre 7 metri</small></span></button>
+        <button type="button" class="mezzo" data-mezzo="roulotte-veranda" aria-pressed="false"><img src="../assets/icone/camper-roulotte.svg" alt=""><span>Roulotte con veranda<small>O con l’auto accanto</small></span></button>
+      </div>
+      <div class="taglie" id="taglie"></div>
+      <p style="margin-top:22px"><span class="nota-bozza">Misure delle piazzole e soglia dei 7 m da confermare con la struttura</span></p>
+    </div>
+  </section>
+
+  <!-- LE ZONE SULLA MAPPA -------------------------------------------------->
+  <section class="sezione sezione--acqua" aria-labelledby="t-zone">
+    <div class="contenitore">
+      <div class="intesta">
+        <div><p class="occhiello">Dove sono</p><h2 class="titolo-l" id="t-zone" data-righe>Quattro zone, <em>ognuna col suo carattere</em></h2></div>
+        <div class="zone-tab appare" role="group" aria-label="Zone" id="zone-tab"></div>
+      </div>
+      <div class="zone-mappa">
+        <div class="mappa-int appare" id="mappa"></div>
+        <div class="zone-mappa__info appare" id="zona-info" aria-live="polite"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PER TUTTE LE PIAZZOLE ------------------------------------------------>
+  <section class="sezione" aria-labelledby="t-tutte">
+    <div class="contenitore">
+      <div class="intesta">
+        <div><p class="occhiello">In ogni piazzola</p><h2 class="titolo-l" id="t-tutte" data-righe>Cosa trovi, e cosa sapere</h2></div>
+        <a class="link-freccia appare" href="info-utili.html#arrivo">Tutte le regole <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+      </div>
+      <ul class="griglia-ic" style="margin-bottom:28px">
+        <li class="appare"><img src="../assets/icone/docce-servizi.svg" alt=""><span>Docce calde gratuite<small>Due blocchi di servizi igienici, con lavatoi per stoviglie e bucato</small></span></li>
+        <li class="appare"><span><svg class="ic"><use href="../assets/icone/sistemazione.svg#energia"/></svg></span><span>Corrente 220 V · 6 A<small>Nella maggior parte delle piazzole, allaccio autorizzato dalla reception</small></span></li>
+        <li class="appare"><img src="../assets/icone/camper-service.svg" alt=""><span>Camper service<small>Carico acqua e scarico, WC chimico</small></span></li>
+        <li class="appare"><img src="../assets/icone/acqua-potabile.svg" alt=""><span>Acqua potabile<small>Fontanelle nel campeggio</small></span></li>
+        <li class="appare"><img src="../assets/icone/barbecue.svg" alt=""><span>Barbecue comuni<small>Solo carbonella, mai in piazzola</small></span></li>
+        <li class="appare"><img src="../assets/icone/lavanderia.svg" alt=""><span>Lavanderia<small>Nella zona 200</small></span></li>
+      </ul>
+      <ul class="in-breve-l">
+        <li class="appare"><span class="segno"><svg class="ic"><use href="../assets/icone/sistemazione.svg#orologio"/></svg></span><span><b>Partenza entro le 12</b>Dopo, si conta un giorno in più.</span></li>
+        <li class="appare is-no"><span class="segno"><svg class="ic"><use href="../assets/icone/sistemazione.svg#no"/></svg></span><span><b>Auto nel parcheggio</b>In piazzola solo per scaricare all’arrivo e caricare alla partenza.</span></li>
+        <li class="appare is-no"><span class="segno"><svg class="ic"><use href="../assets/icone/sistemazione.svg#no"/></svg></span><span><b>Niente fuochi</b>I fornelli a gas vanno tenuti a più di 1 metro dalle piante.</span></li>
+        <li class="appare"><span class="segno"><svg class="ic"><use href="../assets/icone/sistemazione.svg#info"/></svg></span><span><b>Piazzola assegnata</b>Ti accompagniamo noi: una sola unità per piazzola.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sezione sezione--cotto" aria-labelledby="t-prev">
+    <span class="se-archi se-archi--bs" style="--se-archi-d:560px;opacity:.1" aria-hidden="true"></span>
+    <div class="contenitore" style="display:flex;justify-content:space-between;align-items:end;gap:32px;flex-wrap:wrap">
+      <div><p class="occhiello">Piazzole</p><h2 class="titolo-xl" id="t-prev" style="margin:0">Scrivici date e mezzo, <em>ti rispondiamo noi</em></h2></div>
+      <a class="btn btn--bianco" href="https://www.senarrubia.com/richiesta-disponibilita/" target="_blank" rel="noopener">Richiedi un preventivo <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+    </div>
+  </section>
+</main>
+
+<div data-piede></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/dati.js"></script>
+<script src="js/mappa.js"></script>
+<script>
+(function () {
+  const ic = n => `<svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#${n}"/></svg>`;
+  const vuoto = '<span class="vuoto-dato">—</span>';
+  const pill = n => `<span class="zona-pill"><i style="background:var(--zona-${n})"></i>${n}</span>`;
+  const scala = { s: 56, m: 76, l: 100 };
+
+  // Taglie S M L
+  const $t = document.getElementById('taglie');
+  $t.innerHTML = PIAZZOLE.map(p => `
+    <article class="taglia appare" data-taglia="${p.id}">
+      <span class="taglia__sigla" aria-hidden="true">${p.sigla}</span>
+      <div><h3>Piazzola ${p.nome}</h3><p>${p.per}</p></div>
+      <div class="taglia__ingombro" aria-hidden="true"><img src="../assets/icone/${p.id === 's' ? 'tenda' : 'camper-roulotte'}.svg" alt="" style="height:${scala[p.id]}%"></div>
+      <ul>
+        <li><span>Misure</span><strong>${vuoto} × ${vuoto} m</strong></li>
+        <li><span>Corrente</span><strong>6 A</strong></li>
+        <li><span>Fondo</span><strong>Sabbia, ombreggiata</strong></li>
+      </ul>
+      <div class="zone-pill" aria-label="Zone">${p.zone.map(pill).join('')}</div>
+    </article>`).join('');
+
+  const mezzi = document.getElementById('mezzi');
+  mezzi.addEventListener('click', e => {
+    const b = e.target.closest('[data-mezzo]'); if (!b) return;
+    const gia = b.getAttribute('aria-pressed') === 'true';
+    mezzi.querySelectorAll('[data-mezzo]').forEach(x => x.setAttribute('aria-pressed', 'false'));
+    $t.classList.toggle('ha-scelta', !gia);
+    $t.querySelectorAll('.taglia').forEach(el => el.classList.remove('is-adatta'));
+    if (gia) return;
+    b.setAttribute('aria-pressed', 'true');
+    const p = PIAZZOLE.find(x => x.mezzi.includes(b.dataset.mezzo));
+    const el = $t.querySelector(`[data-taglia="${p.id}"]`); el.classList.add('is-adatta');
+    if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) gsap.fromTo(el, { scale: .97 }, { scale: 1, duration: .6, ease: 'back.out(2)' });
+    mappa.zona(p.zone[0]);
+  });
+
+  // Zone sulla mappa
+  const $info = document.getElementById('zona-info'), $tab = document.getElementById('zone-tab');
+  $tab.innerHTML = ZONE.map(z => `<button type="button" data-z="${z.n}" aria-pressed="false"><i style="background:var(--zona-${z.n})"></i>${z.n}</button>`).join('');
+  const mostra = n => {
+    const z = ZONE.find(x => x.n === n);
+    $tab.querySelectorAll('button').forEach(b => b.setAttribute('aria-pressed', +b.dataset.z === n));
+    const taglie = PIAZZOLE.filter(p => p.zone.includes(n)).map(p => p.sigla).join(', ');
+    $info.innerHTML = `
+      <h3><i style="background:var(--zona-${n})"></i>${z.nome}</h3>
+      <p>${z.dove}</p>
+      <p><strong>${z.ospita}.</strong> Piazzole ${taglie}.</p>
+      <div class="metri">
+        <div><img src="../assets/icone/spiaggia-cani.svg" alt=""><small>Spiaggia</small><strong>${vuoto} m</strong></div>
+        <div><img src="../assets/icone/piscina.svg" alt=""><small>Piscina</small><strong>${vuoto} m</strong></div>
+        <div><img src="../assets/icone/docce-servizi.svg" alt=""><small>Servizi</small><strong>${vuoto} m</strong></div>
+      </div>
+      <ul class="vicino">${z.vicino.map(v => `<li>${v}</li>`).join('')}</ul>
+      <a class="link-freccia" href="mappa.html">Tutti i servizi sulla mappa ${ic('freccia')}</a>`;
+    if (window.gsap && !matchMedia('(prefers-reduced-motion: reduce)').matches) gsap.fromTo($info.children, { opacity: 0, y: 12 }, { opacity: 1, y: 0, stagger: .04, duration: .45, ease: 'power3.out', overwrite: true, clearProps: 'opacity,transform' });
+  };
+  const mappa = montaMappa(document.getElementById('mappa'), { quandoZona: mostra, zona: 300 });
+  $tab.addEventListener('click', e => { const b = e.target.closest('[data-z]'); if (b) mappa.zona(+b.dataset.z); });
+})();
+</script>
+<script src="js/sito.js"></script>
+</body>
+</html>

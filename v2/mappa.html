@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mappa del campeggio · S'Ena Arrubia Camping Village</title>
+<meta name="description" content="La mappa del campeggio S'Ena Arrubia: le quattro zone, la piscina, i servizi, la dog area e la spiaggia.">
+<meta name="robots" content="noindex">
+<!-- BOZZA V2 · richiesta del cliente: «mappa del campeggio» -->
+<link rel="icon" href="../assets/brand/pittogramma-ufficiale.svg">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/sito.css">
+<link rel="stylesheet" href="css/v2.css">
+</head>
+<body class="pagina-chiara">
+<div data-testata></div>
+
+<main>
+  <section class="contenitore" style="padding-top:calc(var(--testata-h) + 36px)">
+    <nav class="briciole" aria-label="Sei qui" style="color:var(--se-fg-muted)"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Mappa</span></nav>
+    <div class="intesta" style="margin-bottom:28px">
+      <div>
+        <p class="occhiello">Orientarsi</p>
+        <h1 class="titolo-xl" data-righe style="margin-bottom:12px">La mappa <em>del campeggio</em></h1>
+        <p class="sotto-titolo">Il mare a ovest, lo stagno dei fenicotteri a est, in mezzo la pineta. Tocca un servizio per vederlo sulla mappa.</p>
+      </div>
+      <a class="btn btn--linea" href="https://www.senarrubia.com/wp-content/uploads/mappa-2025.pdf" target="_blank" rel="noopener">Scarica in PDF <svg class="ic" aria-hidden="true" style="transform:rotate(90deg)"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+    </div>
+
+    <div class="legenda-f" id="filtri" role="group" aria-label="Cosa cerchi" style="margin-bottom:16px"></div>
+    <div class="mappa-int" id="mappa"></div>
+    <p class="sotto-titolo" style="margin-top:12px;font-size:var(--se-fs-small)">Su telefono la mappa scorre di lato.</p>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-zone" style="padding-top:clamp(60px,8vw,100px)">
+    <div class="contenitore">
+      <div class="intesta">
+        <div><p class="occhiello">Le zone</p><h2 class="titolo-l" id="t-zone" data-righe>Dove dormi, <em>e cosa hai vicino</em></h2></div>
+        <a class="link-freccia appare" href="piazzole.html">Piazzole per zona <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+      </div>
+      <div class="porte" id="zone" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr))"></div>
+    </div>
+  </section>
+
+  <section class="sezione sezione--chiara" aria-labelledby="t-leg">
+    <div class="contenitore">
+      <div class="intesta"><div><p class="occhiello">Legenda</p><h2 class="titolo-l" id="t-leg" data-righe>Tutti i servizi</h2></div></div>
+      <div class="legenda-g" id="legenda"></div>
+    </div>
+  </section>
+</main>
+
+<div data-piede></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/dati.js"></script>
+<script src="js/mappa.js"></script>
+<script>
+(function () {
+  const M = MAPPA;
+  const bott = ([id, nome, icona]) => `<button type="button" data-cerca="${id}" aria-pressed="false"><img src="../assets/icone/${icona}.svg" alt="">${nome}</button>`;
+  const $f = document.getElementById('filtri');
+  // in alto i servizi che si cercano di più
+  const primi = ['reception', 'piscina', 'servizi', 'ristorante', 'dogarea', 'barbecue', 'parcheggio', 'camperservice'];
+  $f.innerHTML = primi.map(id => bott(M.servizi.find(s => s[0] === id))).join('') + `<button type="button" data-tutti><img src="../assets/brand/sole-minio.svg" alt="">Tutti i servizi</button>`;
+  document.getElementById('legenda').innerHTML = Object.entries(M.gruppi).map(([g, t]) =>
+    `<div><h3>${t}</h3><div class="legenda-f">${M.servizi.filter(s => s[3] === g).map(bott).join('')}</div></div>`).join('');
+
+  const $z = document.getElementById('zone');
+  $z.innerHTML = ZONE.map(z => `
+    <button type="button" class="porta appare" data-zona-c="${z.n}" style="text-align:left;font:inherit;cursor:pointer">
+      <div class="porta__corpo">
+        <h3 style="display:flex;gap:10px;align-items:center"><i style="width:20px;height:20px;border-radius:50%;border:2px solid var(--se-cotto);background:var(--zona-${z.n})"></i>${z.nome}</h3>
+        <p>${z.dove}</p><p><strong style="color:var(--se-fg)">${z.ospita}</strong></p>
+        <ul class="vicino">${z.vicino.map(v => `<li>${v}</li>`).join('')}</ul>
+      </div>
+    </button>`).join('');
+
+  const mappa = montaMappa(document.getElementById('mappa'), { punti: true });
+  const premi = id => {
+    document.querySelectorAll('[data-cerca]').forEach(b => b.setAttribute('aria-pressed', b.dataset.cerca === id));
+    mappa.mostra(id); mappa.zona(null);
+  };
+  document.addEventListener('click', e => {
+    const b = e.target.closest('[data-cerca]');
+    if (b) {
+      premi(b.getAttribute('aria-pressed') === 'true' ? null : b.dataset.cerca);
+      if (b.closest('#legenda')) window.lenis ? lenis.scrollTo('#mappa', { offset: -140 }) : document.getElementById('mappa').scrollIntoView({ block: 'center' });
+    }
+    if (e.target.closest('[data-tutti]')) window.lenis ? lenis.scrollTo('#legenda', { offset: -140 }) : document.getElementById('legenda').scrollIntoView();
+    const z = e.target.closest('[data-zona-c]');
+    if (z) { premi(null); mappa.zona(+z.dataset.zonaC); window.lenis ? lenis.scrollTo('#mappa', { offset: -140 }) : document.getElementById('mappa').scrollIntoView({ block: 'center' }); }
+  });
+  premi('reception');
+})();
+</script>
+<script src="js/sito.js"></script>
+</body>
+</html>

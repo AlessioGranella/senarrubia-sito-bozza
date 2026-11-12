@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>S'Ena Arrubia Camping Village · Arborea, Sardegna</title>
+<meta name="description" content="Campeggio nella pineta di Arborea, a pochi passi dal mare e dall'oasi dei fenicotteri. Case mobili, tende lodge e piazzole.">
+<meta name="robots" content="noindex">
+<!-- BOZZA V2: la v1 è in ../ e non si tocca -->
+<link rel="icon" href="../assets/brand/pittogramma-ufficiale.svg">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/sito.css">
+<link rel="stylesheet" href="css/v2.css">
+</head>
+<body>
+<div data-testata></div>
+
+<main>
+  <!-- HERO ------------------------------------------------------------->
+  <section class="hero" aria-label="S'Ena Arrubia">
+    <div class="hero__media">
+      <img src="../assets/foto/spiaggia-drone.jpg" alt="Il mare della Marina di Arborea visto dall'alto">
+      <img src="../assets/foto/pineta-casette.jpg" alt="Le case mobili all'ombra della pineta">
+      <img src="../assets/foto/ds-oasi-fenicotteri.jpg" alt="Fenicotteri nello stagno dell'oasi">
+      <img src="../assets/foto/piscina.jpg" alt="La piscina del campeggio">
+    </div>
+    <div class="hero__corpo contenitore">
+      <h1 class="hero__titolo">Tra la pineta<br><em>e il mare</em></h1>
+      <p class="hero__sotto"><img src="../assets/brand/sole-bianco.svg" alt=""> Camping Village ad Arborea, Sardegna</p>
+    </div>
+    <div class="hero__punti"></div>
+
+    <!-- V2 · info che ruotano (rif. campingpiomboni.it): la data di apertura per prima -->
+    <aside class="hero__stagione ruota" data-stagione-box aria-label="Informazioni sulla stagione" aria-live="off">
+      <div class="ruota__voci">
+        <div data-voce><span class="ruota__eti">Stagione <span data-stagione="anno"></span></span><span class="ruota__grande">Dal <span data-stagione="apertura"></span><br><em>al <span data-stagione="chiusura"></span></em></span><span class="ruota__sotto" data-stagione="conto"></span></div>
+        <div data-voce><span class="ruota__eti">Prenota prima</span><span class="ruota__grande">-25%<br><em>entro il 28 febbraio</em></span><span class="ruota__sotto">Soggiorni di almeno 7 notti in estate</span></div>
+        <div data-voce><span class="ruota__eti">Nella pineta secolare</span><span class="ruota__grande">Accesso diretto<br><em>al mare</em></span><span class="ruota__sotto">La spiaggia di sabbia è a pochi passi</span></div>
+        <div data-voce><span class="ruota__eti">Pet friendly</span><span class="ruota__grande">Dog Beach<br><em>e Dog Park</em></span><span class="ruota__sotto">Oltre 500 metri tutti per i cani</span></div>
+      </div>
+      <div class="ruota__piede"><span class="ruota__punti" aria-hidden="true"><i class="is-attivo"></i><i></i><i></i><i></i></span><button type="button" class="ruota__avanti" aria-label="Informazione successiva"><svg class="ic"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></button></div>
+    </aside>
+    <span class="hero__scorri" aria-hidden="true"></span>
+  </section>
+
+  <!-- BARRA PRENOTA: collegata al motore MyGuestCare ---------------------->
+  <form class="prenota" data-prenota novalidate aria-label="Verifica disponibilità">
+    <label class="prenota__campo">
+      <span class="prenota__etichetta"><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#arrivo"/></svg>Arrivo</span>
+      <input type="date" data-arrivo required>
+    </label>
+    <label class="prenota__campo">
+      <span class="prenota__etichetta"><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#partenza"/></svg>Partenza</span>
+      <input type="date" data-partenza required>
+    </label>
+    <div class="prenota__campo">
+      <span class="prenota__etichetta"><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#persone"/></svg>Ospiti</span>
+      <button type="button" class="prenota__ospiti" data-apri-ospiti aria-expanded="false" data-riassunto>2 adulti</button>
+      <div class="prenota__pop" role="group" aria-label="Ospiti">
+        <div class="contatore" data-conta="adulti">
+          <span class="contatore__nome">Adulti<small>Dai 18 anni</small></span>
+          <span class="contatore__ctrl"><button type="button" class="tondo" data-meno aria-label="Meno adulti"><svg class="ic"><use href="../assets/icone/sistemazione.svg#meno"/></svg></button><output>2</output><button type="button" class="tondo" data-piu aria-label="Più adulti"><svg class="ic"><use href="../assets/icone/sistemazione.svg#piu"/></svg></button></span>
+        </div>
+        <div class="contatore" data-conta="bambini">
+          <span class="contatore__nome">Bambini<small>Da 0 a 17 anni</small></span>
+          <span class="contatore__ctrl"><button type="button" class="tondo" data-meno aria-label="Meno bambini"><svg class="ic"><use href="../assets/icone/sistemazione.svg#meno"/></svg></button><output>0</output><button type="button" class="tondo" data-piu aria-label="Più bambini"><svg class="ic"><use href="../assets/icone/sistemazione.svg#piu"/></svg></button></span>
+        </div>
+        <div class="eta-bimbi" data-eta hidden></div>
+      </div>
+    </div>
+    <button class="btn btn--pieno" type="submit">Verifica disponibilità</button>
+    <p class="prenota__errore" data-errore role="alert"></p>
+  </form>
+
+  <!-- V2 · STRISCIA: i punti chiave sempre in vista -->
+  <div class="striscia" aria-label="In breve">
+    <div class="striscia__binario">
+      <span>Aperti <b data-stagione="periodo"></b></span><span>Pineta secolare</span><span>Accesso diretto al mare</span><span>Piscina 25×10 m</span><span>Oasi dei fenicotteri</span><span>Pet friendly</span><span>Animazione per grandi e bambini</span>
+      <span aria-hidden="true">Aperti <b data-stagione="periodo"></b></span><span aria-hidden="true">Pineta secolare</span><span aria-hidden="true">Accesso diretto al mare</span><span aria-hidden="true">Piscina 25×10 m</span><span aria-hidden="true">Oasi dei fenicotteri</span><span aria-hidden="true">Pet friendly</span><span aria-hidden="true">Animazione per grandi e bambini</span>
+    </div>
+  </div>
+
+  <!-- MANIFESTO ---------------------------------------------------------->
+  <section class="manifesto contenitore">
+    <img class="manifesto__icona appare" src="../assets/brand/pittogramma-ufficiale.svg" alt="">
+    <p class="manifesto__testo">Un campeggio nella pineta di Arborea, a pochi passi dal mare, dove la mattina si fa colazione in compagnia dei fenicotteri.</p>
+    <div class="manifesto__cifre">
+      <div class="appare"><strong data-conta-a="7">7</strong><span>sistemazioni tra case mobili e tende lodge</span></div>
+      <div class="appare"><strong>25×10</strong><span>metri di piscina semi-olimpionica</span></div>
+      <div class="appare"><strong data-conta-a="500" data-suffisso="+">500+</strong><span>metri di area tutta per i cani</span></div>
+    </div>
+  </section>
+
+  <!-- V2 · LA STAGIONE IN GRANDE ------------------------------------------>
+  <section class="sezione sezione--acqua" aria-labelledby="t-stag">
+    <div class="contenitore stagione-g">
+      <div>
+        <p class="occhiello">Stagione <span data-stagione="anno"></span></p>
+        <div class="stagione-g__date" data-stagione-box>
+          <div class="stagione-g__data appare"><small>Apriamo il</small><strong data-stagione="apertura"></strong></div>
+          <span class="stagione-g__freccia appare" aria-hidden="true"><svg class="ic"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></span>
+          <div class="stagione-g__data appare"><small>Chiudiamo il</small><strong data-stagione="chiusura"></strong></div>
+        </div>
+        <p class="stagione-g__conto appare"><strong data-stagione="giorni"></strong> giorni alla riapertura. Le date migliori si prenotano adesso.</p>
+      </div>
+      <div class="appare">
+        <h2 class="titolo-l" id="t-stag" data-righe>Ogni mese ha <em>il suo campeggio</em></h2>
+        <p class="lead" style="margin-bottom:28px">Maggio e settembre per la natura e la calma, luglio e agosto per la piscina e l’animazione. In bassa stagione fino al 30% in meno.</p>
+        <a class="btn btn--scuro" href="offerte.html">Vedi le offerte <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+        <p style="margin-top:18px"><span class="nota-bozza">Date 2026: da confermare per il 2027</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SISTEMAZIONI IN ORIZZONTALE ---------------------------------------->
+  <section class="orizzontale sezione--sabbia" aria-labelledby="t-sist">
+    <div class="orizzontale__schermo">
+      <div class="contenitore intesta">
+        <div>
+          <p class="occhiello">Dove dormire</p>
+          <h2 class="titolo-xl" id="t-sist" data-righe>Case mobili e tende,<br><em>all'ombra dei pini</em></h2>
+        </div>
+        <div class="orizzontale__lato appare">
+          <p>Cinque case mobili e due tende lodge, tutte nella pineta e a pochi passi dal mare.</p>
+          <a class="link-freccia" href="sistemazioni.html">Confrontale tutte <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+        </div>
+      </div>
+      <div class="orizzontale__vetrina"><div class="orizzontale__binario" id="binario"></div></div>
+      <div class="quanti appare">
+        <span class="quanti__label">Quanti siete?</span>
+        <a href="sistemazioni.html?ospiti=2">2</a><a href="sistemazioni.html?ospiti=3">3</a><a href="sistemazioni.html?ospiti=4">4</a><a href="sistemazioni.html?ospiti=5">5</a><a href="sistemazioni.html?ospiti=6">6</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANNELLI: MARE, PINETA, OASI --------------------------------------->
+  <section class="pannelli" aria-label="Il luogo">
+    <article class="pannello">
+      <div class="pannello__img"><img src="../assets/foto/ds-spiaggia-riva.jpg" alt="La spiaggia di sabbia della Marina di Arborea" loading="lazy"></div>
+      <div class="pannello__corpo">
+        <span class="pannello__num">01 — IL MARE</span>
+        <h2>Una lunga spiaggia di sabbia</h2>
+        <p>La Marina di Arborea, davanti al campeggio: sabbia soffice, tramonti sul mare e un tratto di spiaggia dedicato ai cani.</p>
+        <div class="pannello__icone"><img src="../assets/icone/spiaggia-cani.svg" alt="Spiaggia per cani"><img src="../assets/icone/beach-tennis-volley.svg" alt="Beach volley"></div>
+      </div>
+    </article>
+    <article class="pannello">
+      <div class="pannello__img"><img src="../assets/foto/pineta-casette.jpg" alt="Le case mobili nella pineta" loading="lazy"></div>
+      <div class="pannello__corpo">
+        <span class="pannello__num">02 — LA PINETA</span>
+        <h2>All’ombra della pineta</h2>
+        <p>Case mobili, tende e piazzole stanno all’ombra della pineta. Dimentica l’auto: il mare è a pochi passi.</p>
+        <div class="pannello__icone"><img src="../assets/icone/casa-mobile.svg" alt="Case mobili"><img src="../assets/icone/tenda-lodge.svg" alt="Tende lodge"><img src="../assets/icone/barbecue.svg" alt="Barbecue"></div>
+      </div>
+    </article>
+    <article class="pannello">
+      <div class="pannello__img"><img src="../assets/foto/ds-oasi-fenicotteri.jpg" alt="Fenicotteri nello stagno dell'oasi" loading="lazy"></div>
+      <div class="pannello__corpo">
+        <span class="pannello__num">03 — L’OASI</span>
+        <h2>L’oasi dei fenicotteri</h2>
+        <p>Lo stagno salato di un’oasi naturalistica, circondato da sentieri nel verde, con i fenicotteri da guardare.</p>
+        <div class="pannello__icone"><img src="../assets/icone/bird-watching.svg" alt="Bird watching"></div>
+        <a class="btn btn--vetro" href="#">Scopri la natura <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+      </div>
+    </article>
+  </section>
+
+  <!-- SERVIZI ------------------------------------------------------------>
+  <section class="sezione" aria-labelledby="t-serv">
+    <div class="contenitore servizi-g">
+      <div style="position:relative">
+        <div class="servizi-g__foto tenda-img" data-parallasse><img src="../assets/foto/piscina-drone.jpg" alt="La piscina e i campi sportivi visti dall'alto" loading="lazy"></div>
+        <div class="servizi-g__foto-2 appare"><img src="../assets/foto/ds-piscina-famiglia.jpg" alt="Un papà e la figlia in piscina" loading="lazy"></div>
+      </div>
+      <div>
+        <p class="occhiello">Servizi</p>
+        <h2 class="titolo-xl" id="t-serv" data-righe>Tutto intorno<br><em>a te</em></h2>
+        <p class="lead appare">Una piscina all’aperto semi-olimpionica, il ristorante-pizzeria, il bar, lo sport e l’animazione per grandi e bambini.</p>
+        <ul class="servizi-l">
+          <li class="appare"><img src="../assets/icone/piscina.svg" alt=""><span>Piscina 25×10 m<small>Con acquafitness a ritmo di musica</small></span></li>
+          <li class="appare"><img src="../assets/icone/ristorante.svg" alt=""><span>Ristorante-pizzeria<small>E un bar, anche a bordo piscina</small></span></li>
+          <li class="appare"><img src="../assets/icone/area-spettacoli.svg" alt=""><span>Animazione<small>Di giorno e di sera, in estate</small></span></li>
+          <li class="appare"><img src="../assets/icone/parco-giochi.svg" alt=""><span>Parco giochi<small>Mini club dai 6 anni</small></span></li>
+          <li class="appare"><img src="../assets/icone/campo-calcio.svg" alt=""><span>Calcetto in erba<small>E campo da beach volley</small></span></li>
+          <li class="appare"><img src="../assets/icone/corner-shop.svg" alt=""><span>Corner shop<small>E spesa online</small></span></li>
+        </ul>
+        <a class="btn btn--scuro appare" href="#">Tutti i servizi <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 · TRE PORTE: piazzole, mappa, offerte ---------------------------->
+  <section class="sezione sezione--chiara" aria-labelledby="t-porte">
+    <div class="contenitore">
+      <div class="intesta">
+        <div><p class="occhiello">Prima di partire</p><h2 class="titolo-xl" id="t-porte" data-righe>Scegli il posto <em>giusto per te</em></h2></div>
+        <p class="sotto-titolo appare">Piazzole per misura, la mappa con tutti i servizi e le offerte della stagione.</p>
+      </div>
+      <div class="porte">
+        <a class="porta appare" href="piazzole.html">
+          <div class="porta__img"><img src="../assets/foto/camper.jpg" alt="" loading="lazy"><span class="taglie-mini" aria-hidden="true"><span>S</span><span>M</span><span>L</span></span></div>
+          <div class="porta__corpo"><h3>Piazzole S, M e L</h3><p>Dicci con cosa viaggi, tenda, roulotte o camper: ti mostriamo la misura che fa per te e quanto dista dal mare.</p><span class="link-freccia">Trova la tua piazzola <svg class="ic"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></span></div>
+        </a>
+        <a class="porta appare" href="mappa.html">
+          <div class="porta__img"><img src="img/mappa.jpg" alt="" loading="lazy" style="object-position:55% 50%"></div>
+          <div class="porta__corpo"><h3>La mappa del campeggio</h3><p>Le quattro zone, la piscina, i servizi, la dog area: tocca un servizio e lo trovi sulla mappa.</p><span class="link-freccia">Apri la mappa <svg class="ic"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></span></div>
+        </a>
+        <a class="porta appare" href="offerte.html">
+          <div class="porta__img"><img src="../assets/foto/ds-spiaggia-relax.jpg" alt="" loading="lazy"></div>
+          <div class="porta__corpo"><h3>Offerte della stagione</h3><p>Fino al 30% in bassa stagione, una notte gratis in estate, -25% se prenoti entro febbraio.</p><span class="link-freccia">Vedi le offerte <svg class="ic"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PET ---------------------------------------------------------------->
+  <section class="sezione sezione--cotto" aria-labelledby="t-pet">
+    <span class="se-archi se-archi--bs" style="--se-archi-d:560px;opacity:.1" aria-hidden="true"></span>
+    <div class="contenitore pet">
+      <div class="pet__testo">
+        <p class="occhiello">Pet friendly</p>
+        <h2 class="titolo-xl" id="t-pet" data-righe>In vacanza con il tuo <em>quattro zampe</em></h2>
+        <p class="lead appare">Per noi ogni animale domestico fa parte della famiglia. Spazi ombreggiati e recintati, sentieri nel verde e una spiaggia dove correre e nuotare.</p>
+        <a class="btn btn--bianco appare" href="info-utili.html#animali">Regole per il pet <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+      </div>
+      <div class="pet__card">
+        <div class="pet__voce appare"><img src="../assets/icone/spiaggia-cani.svg" alt=""><strong>Dog Beach</strong><span>Un lungo tratto di spiaggia ad accesso libero per i cani.</span></div>
+        <div class="pet__voce appare"><img src="../assets/icone/area-cani.svg" alt=""><strong>Dog area</strong><span>Oltre 500 metri nella pineta, sempre all’ombra.</span></div>
+        <div class="pet__voce appare"><img src="../assets/icone/doccia-cani.svg" alt=""><strong>Doccia per cani</strong><span>Dentro la dog area, con giochi e fontanella.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- V2 · PERCHÉ SCEGLIERCI (rif. campingpiomboni.it, fondo pagina) -------->
+  <section class="sezione" aria-labelledby="t-forza">
+    <div class="contenitore">
+      <div class="intesta">
+        <div><p class="occhiello">Perché S’Ena Arrubia</p><h2 class="titolo-xl" id="t-forza" data-righe>Fatto per chi cerca <em>calma e natura</em></h2></div>
+        <p class="sotto-titolo appare">Un campeggio a tre stelle, semplice e curato, al centro della costa ovest della Sardegna.</p>
+      </div>
+      <div class="forza">
+        <article class="forza__voce forza__voce--larga appare"><img src="../assets/foto/ds-pineta-cielo.jpg" alt="" loading="lazy"><div class="forza__corpo"><span class="forza__num">01</span><h3>Relax nella natura</h3><p>Una pineta secolare sempre all’ombra, lo stagno dei fenicotteri da un lato e il mare dall’altro.</p></div></article>
+        <article class="forza__voce appare"><img src="../assets/foto/ds-piscina-famiglia.jpg" alt="" loading="lazy"><div class="forza__corpo"><span class="forza__num">02</span><h3>Perfetto per le famiglie</h3><p>Piscina, parco giochi, mini club dai 6 anni e auto lasciate fuori: i bambini girano sicuri.</p></div></article>
+        <article class="forza__voce appare"><img src="../assets/foto/ds-spiaggia-riva.jpg" alt="" loading="lazy"><div class="forza__corpo"><span class="forza__num">03</span><h3>Il mare a pochi passi</h3><p>Accesso diretto a una lunga spiaggia di sabbia, con un tratto per i cani.</p></div></article>
+        <article class="forza__voce appare"><img src="../assets/foto/ds-casetta-coppia.jpg" alt="" loading="lazy"><div class="forza__corpo"><span class="forza__num">04</span><h3>Case nella pineta</h3><p>Case mobili e tende lodge con bagno privato e veranda, tra gli alberi.</p></div></article>
+        <article class="forza__voce appare"><img src="../assets/foto/ds-oasi-birdwatching.jpg" alt="" loading="lazy"><div class="forza__corpo"><span class="forza__num">05</span><h3>Al centro della Sardegna</h3><p>Da qui si raggiungono il Sinis, la Costa Verde e Oristano in poco tempo.</p></div></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERIA SPARSA ---------------------------------------------------->
+  <section class="sparsa" aria-labelledby="t-sparsa">
+    <div class="sparsa__fissa">
+      <div class="sparsa__titolo">
+        <p class="occhiello" style="justify-content:center">@campingsenarrubia</p>
+        <h2 class="titolo-xl" id="t-sparsa">Giornate <em>all’aria aperta</em></h2>
+        <a class="btn btn--linea" href="https://www.instagram.com/campingsenarrubia/" target="_blank" rel="noopener">Seguici su Instagram</a>
+      </div>
+      <figure class="sparsa__foto" data-x="8"  data-y="10" style="left:4%;top:8%;width:clamp(140px,17vw,260px);aspect-ratio:4/5;margin:0"><img src="../assets/foto/ds-spiaggia-relax.jpg" alt="" loading="lazy"></figure>
+      <figure class="sparsa__foto" data-x="30" data-y="4"  style="left:27%;top:3%;width:clamp(110px,12vw,190px);aspect-ratio:1;margin:0"><img src="../assets/foto/ds-cartelli.jpg" alt="" loading="lazy"></figure>
+      <figure class="sparsa__foto" data-x="72" data-y="6"  style="right:22%;top:6%;width:clamp(130px,14vw,220px);aspect-ratio:3/4;margin:0"><img src="../assets/foto/ds-cavalli.jpg" alt="" loading="lazy"></figure>
+      <figure class="sparsa__foto" data-x="94" data-y="18" style="right:3%;top:14%;width:clamp(150px,18vw,280px);aspect-ratio:4/3;margin:0"><img src="../assets/foto/ds-oasi-birdwatching.jpg" alt="" loading="lazy"></figure>
+      <figure class="sparsa__foto" data-x="6"  data-y="88" style="left:6%;bottom:8%;width:clamp(150px,18vw,280px);aspect-ratio:4/3;margin:0"><img src="../assets/foto/ristorante.jpg" alt="" loading="lazy"></figure>
+      <figure class="sparsa__foto" data-x="34" data-y="96" style="left:30%;bottom:3%;width:clamp(110px,12vw,190px);aspect-ratio:3/4;margin:0"><img src="../assets/foto/ds-tenda.jpg" alt="" loading="lazy"></figure>
+      <figure class="sparsa__foto" data-x="68" data-y="94" style="right:26%;bottom:5%;width:clamp(120px,13vw,210px);aspect-ratio:1;margin:0"><img src="../assets/foto/ds-pineta-cielo.jpg" alt="" loading="lazy"></figure>
+      <figure class="sparsa__foto" data-x="94" data-y="84" style="right:4%;bottom:10%;width:clamp(140px,16vw,250px);aspect-ratio:4/5;margin:0"><img src="../assets/foto/camper.jpg" alt="" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <!-- DOVE SIAMO --------------------------------------------------------->
+  <section class="sezione sezione--acqua" id="dove" aria-labelledby="t-dove">
+    <div class="contenitore dove">
+      <div class="dove__foto tenda-img" data-parallasse><img src="../assets/foto/ds-oasi-drone.jpg" alt="L'oasi e la pineta di Arborea viste dall'alto" loading="lazy"></div>
+      <div>
+        <p class="occhiello">Dove siamo</p>
+        <h2 class="titolo-xl" id="t-dove" data-righe>Arborea, sulla costa <em>di Oristano</em></h2>
+        <p class="lead appare">Si arriva in auto, in moto, in camper o in bicicletta. Vicino a Oristano o ad Arborea, affidati al navigatore.</p>
+        <ul class="contatti">
+          <li class="appare"><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#luogo"/></svg>Strada 29 Ovest, 09092 Arborea (OR)</li>
+          <li class="appare"><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#telefono"/></svg><a href="tel:+390783809011">+39 0783 809011</a></li>
+          <li class="appare"><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#mail"/></svg><a href="mailto:booking@senarrubia.com">booking@senarrubia.com</a></li>
+        </ul>
+        <a class="btn btn--scuro appare" href="https://maps.google.com/?q=S'Ena+Arrubia+Camping+Arborea" target="_blank" rel="noopener">Indicazioni stradali <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<div data-piede></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/dati.js"></script>
+<script>
+  // Card delle sistemazioni per il binario orizzontale
+  document.getElementById('binario').innerHTML = SISTEMAZIONI.map(s => `
+    <a class="card-s" href="${s.pagina || 'sistemazioni.html#' + s.id}">
+      <img src="../assets/foto/${s.foto}.jpg" alt="" loading="lazy">
+      <span class="card-s__vai" aria-hidden="true"><svg class="ic"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></span>
+      <span class="card-s__corpo">
+        <span class="card-s__tipo">${s.tipo === 'casa' ? 'Casa mobile' : 'Tenda lodge'}</span>
+        <h3 class="card-s__nome">${s.nome.replace(/^(Casa mobile|Tenda Lodge) /, '')}</h3>
+        <span class="card-s__dati">
+          <span><svg class="ic"><use href="../assets/icone/sistemazione.svg#persone"/></svg>${s.persone} persone</span>
+          <span><svg class="ic"><use href="../assets/icone/sistemazione.svg#superficie"/></svg>${String(s.mq).replace('.', ',')} m²</span>
+          <span><svg class="ic"><use href="../assets/icone/sistemazione.svg#camera"/></svg>${s.camere} camere</span>
+        </span>
+      </span>
+    </a>`).join('') + `
+    <a class="card-s card-s--fine" href="sistemazioni.html">
+      <span class="se-archi se-archi--ad" aria-hidden="true"></span>
+      <span><strong>Quale fa per te?</strong><span class="btn btn--bianco">Usa il filtro <svg class="ic"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></span></span>
+    </a>`;
+</script>
+<script src="js/sito.js"></script>
+</body>
+</html>

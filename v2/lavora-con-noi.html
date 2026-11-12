@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lavora con noi · S'Ena Arrubia Camping Village</title>
+<meta name="description" content="Candidatura spontanea per la stagione al campeggio S'Ena Arrubia di Arborea: reception, sala, cucina, animazione, pulizie, manutenzione.">
+<meta name="robots" content="noindex">
+<!-- BOZZA V2 · richiesta del cliente: area invio CV per candidature spontanee.
+     Il modulo è dimostrativo: va collegato a una casella email o a un servizio di invio moduli. -->
+<link rel="icon" href="../assets/brand/pittogramma-ufficiale.svg">
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/sito.css">
+<link rel="stylesheet" href="css/v2.css">
+</head>
+<body>
+<div data-testata></div>
+
+<main>
+  <section class="apertura" style="height:62svh">
+    <div class="apertura__img"><img src="../assets/foto/ds-ristorante.jpg" alt="Il ristorante del campeggio"></div>
+    <div class="apertura__corpo contenitore">
+      <nav class="briciole" aria-label="Sei qui"><a href="index.html">Home</a><span aria-hidden="true">/</span><span>Lavora con noi</span></nav>
+      <h1>Lavora con noi</h1>
+      <p>Ogni stagione cerchiamo persone che amano l’accoglienza e la vita all’aperto. Anche se non vedi un annuncio, mandaci il tuo CV.</p>
+    </div>
+  </section>
+
+  <section class="sezione" aria-labelledby="t-cand">
+    <div class="contenitore lavora-layout">
+      <div class="lavora-layout__lato">
+        <p class="occhiello">Candidatura spontanea</p>
+        <h2 class="titolo-l" id="t-cand" data-righe style="margin:0">Una stagione <em>tra pineta e mare</em></h2>
+        <p class="lead appare">Lavoriamo da maggio a ottobre. Ti scriviamo quando si apre un posto adatto a te: teniamo i CV per tutta la stagione.</p>
+        <div class="ruoli-g">
+          <div class="ruolo appare"><img src="../assets/icone/reception.svg" alt=""><strong>Reception</strong><span>Accoglienza, prenotazioni, lingue</span></div>
+          <div class="ruolo appare"><img src="../assets/icone/ristorante.svg" alt=""><strong>Ristorante e bar</strong><span>Sala, cucina, pizzeria, bar</span></div>
+          <div class="ruolo appare"><img src="../assets/icone/area-spettacoli.svg" alt=""><strong>Animazione</strong><span>Mini club, sport, serate</span></div>
+          <div class="ruolo appare"><img src="../assets/icone/casa-mobile.svg" alt=""><strong>Alloggi e campeggio</strong><span>Pulizie, manutenzione, verde</span></div>
+        </div>
+      </div>
+
+      <form class="modulo appare" id="modulo" novalidate aria-labelledby="t-mod">
+        <h3 id="t-mod" style="margin:0;font-size:1.4rem;font-weight:900;color:var(--se-fg-title)">Inviaci la tua candidatura</h3>
+        <div class="modulo__riga">
+          <label class="campo">Nome<input name="nome" autocomplete="given-name" required></label>
+          <label class="campo">Cognome<input name="cognome" autocomplete="family-name" required></label>
+        </div>
+        <div class="modulo__riga">
+          <label class="campo">Email<input name="email" type="email" autocomplete="email" required></label>
+          <label class="campo">Telefono<input name="telefono" type="tel" autocomplete="tel"></label>
+        </div>
+        <div class="gruppo-c">
+          <span id="t-ruoli">In quale ruolo ti vedi? Anche più di uno</span>
+          <div class="filtro__chips" role="group" aria-labelledby="t-ruoli" data-multi="ruoli">
+            <button type="button" class="chip-f" aria-pressed="false">Reception</button><button type="button" class="chip-f" aria-pressed="false">Sala e bar</button><button type="button" class="chip-f" aria-pressed="false">Cucina e pizzeria</button><button type="button" class="chip-f" aria-pressed="false">Animazione e mini club</button><button type="button" class="chip-f" aria-pressed="false">Bagnino</button><button type="button" class="chip-f" aria-pressed="false">Pulizie</button><button type="button" class="chip-f" aria-pressed="false">Manutenzione e verde</button><button type="button" class="chip-f" aria-pressed="false">Altro</button>
+          </div>
+        </div>
+        <div class="gruppo-c">
+          <span id="t-mesi">Quando sei disponibile?</span>
+          <div class="filtro__chips" role="group" aria-labelledby="t-mesi" data-multi="mesi">
+            <button type="button" class="chip-f" aria-pressed="false">Maggio</button><button type="button" class="chip-f" aria-pressed="false">Giugno</button><button type="button" class="chip-f" aria-pressed="false">Luglio</button><button type="button" class="chip-f" aria-pressed="false">Agosto</button><button type="button" class="chip-f" aria-pressed="false">Settembre</button><button type="button" class="chip-f" aria-pressed="false">Ottobre</button>
+          </div>
+        </div>
+        <label class="campo">Due righe su di te<textarea name="messaggio" placeholder="Esperienze, lingue che parli, se ti serve un alloggio…"></textarea></label>
+        <label class="caricamento" id="cv">
+          <input type="file" name="cv" accept=".pdf,.doc,.docx">
+          <span class="caricamento__ico"><svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></span>
+          <span><strong id="cv-nome">Carica il tuo CV</strong><small>PDF o Word, al massimo 5 MB. Trascinalo qui o tocca per sceglierlo.</small></span>
+        </label>
+        <label class="spunta-c"><input type="checkbox" name="privacy" required><span>Ho letto l’<a href="#">informativa privacy</a> e acconsento al trattamento dei miei dati per la selezione del personale.</span></label>
+        <p class="prenota__errore" id="errore" role="alert" style="margin:0"></p>
+        <button class="btn btn--pieno" type="submit" style="justify-self:start">Invia candidatura <svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#freccia"/></svg></button>
+        <div class="modulo__esito" id="esito" hidden></div>
+        <p style="margin:0"><span class="nota-bozza">Bozza: il modulo va collegato alla casella che riceve i CV</span></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<div data-piede></div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="js/dati.js"></script>
+<script src="js/sito.js"></script>
+<script>
+(function () {
+  const f = document.getElementById('modulo');
+  f.querySelectorAll('[data-multi]').forEach(g => g.addEventListener('click', e => {
+    const b = e.target.closest('.chip-f'); if (b) b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') !== 'true');
+  }));
+  const cv = document.getElementById('cv'), file = cv.querySelector('input'), nome = document.getElementById('cv-nome');
+  const mostra = () => { const x = file.files[0]; nome.textContent = x ? `${x.name} · ${(x.size / 1048576).toFixed(1).replace('.', ',')} MB` : 'Carica il tuo CV'; };
+  file.addEventListener('change', mostra);
+  ['dragenter', 'dragover'].forEach(t => cv.addEventListener(t, e => { e.preventDefault(); cv.classList.add('is-sopra'); }));
+  ['dragleave', 'drop'].forEach(t => cv.addEventListener(t, e => { e.preventDefault(); cv.classList.remove('is-sopra'); }));
+  cv.addEventListener('drop', e => { if (e.dataTransfer.files.length) { file.files = e.dataTransfer.files; mostra(); } });
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const err = document.getElementById('errore'); err.textContent = '';
+    if (!f.nome.value.trim() || !f.cognome.value.trim()) return err.textContent = 'Scrivi nome e cognome.';
+    if (!f.email.validity.valid || !f.email.value) return err.textContent = 'Controlla l’indirizzo email.';
+    if (!file.files[0]) return err.textContent = 'Carica il tuo CV.';
+    if (file.files[0].size > 5 * 1048576) return err.textContent = 'Il CV supera i 5 MB.';
+    if (!f.privacy.checked) return err.textContent = 'Serve il consenso privacy per inviare la candidatura.';
+    const es = document.getElementById('esito'); es.hidden = false;
+    es.textContent = `Grazie ${f.nome.value.trim()}! Abbiamo ricevuto la tua candidatura: ti scriviamo a ${f.email.value} se si apre un posto adatto a te.`;
+  });
+})();
+</script>
+</body>
+</html>
