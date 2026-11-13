@@ -267,7 +267,7 @@
   const ic2 = n => `<svg class="ic" aria-hidden="true"><use href="../assets/icone/sistemazione.svg#${n}"/></svg>`;
   // Altre sistemazioni per almeno 5 persone
   document.getElementById('altre').innerHTML = SISTEMAZIONI.filter(s => s.id !== 'mirto' && s.persone >= 5).slice(0, 3).map(s => `
-    <a class="card-s appare" href="sistemazioni.html#${s.id}">
+    <a class="card-s appare" href="${s.pagina || 'sistemazioni.html#' + s.id}">
       <img src="../assets/foto/${s.foto}.jpg" alt="" loading="lazy">
       <span class="card-s__vai" aria-hidden="true">${ic2('freccia')}</span>
       <span class="card-s__corpo">
@@ -312,7 +312,7 @@
   let i = 0, prima = null;
   const vai = n => {
     i = (n + FOTO.length) % FOTO.length;
-    img.src = `assets/foto/${FOTO[i][0]}.jpg`; img.alt = FOTO[i][1];
+    img.src = `../assets/foto/${FOTO[i][0]}.jpg`; img.alt = FOTO[i][1];
     document.getElementById('lb-dida').textContent = FOTO[i][1];
     document.getElementById('lb-n').textContent = `${i + 1} / ${FOTO.length}`;
     if (window.gsap) gsap.fromTo(img, { opacity: 0, scale: .97 }, { opacity: 1, scale: 1, duration: .5, ease: 'power3.out' });

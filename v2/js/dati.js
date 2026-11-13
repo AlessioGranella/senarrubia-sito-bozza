@@ -15,7 +15,7 @@ window.SISTEMAZIONI = [
     frigo: '204 l con ghiacciaia',
   },
   {
-    id: 'sunset-comfort', motore: 50, bagno: 'Bagno privato con WC, doccia e lavabo', nome: 'Casa mobile Sunset Comfort', tipo: 'casa', pagina: null,
+    id: 'sunset-comfort', motore: 50, bagno: 'Bagno privato con WC, doccia e lavabo', nome: 'Casa mobile Sunset Comfort', tipo: 'casa', pagina: 'casa-mobile-sunset-comfort.html',
     foto: 'sunset-comfort', foto2: 'sunset-comfort',
     persone: 5, mq: 24, camere: 2,
     letti: 'Matrimoniale, 2 singoli e letto a soppalco',
@@ -25,7 +25,7 @@ window.SISTEMAZIONI = [
     frigo: '93 l',
   },
   {
-    id: 'sunset-comfort-plus', motore: 56, bagno: 'Bagno privato con WC, doccia e lavabo', nome: 'Casa mobile Sunset Comfort Plus', tipo: 'casa', pagina: null,
+    id: 'sunset-comfort-plus', motore: 56, bagno: 'Bagno privato con WC, doccia e lavabo', nome: 'Casa mobile Sunset Comfort Plus', tipo: 'casa', pagina: 'casa-mobile-sunset-comfort-plus.html',
     foto: 'sunset-comfort-plus', foto2: 'sunset-comfort-plus',
     persone: 6, mq: 30, camere: 3,
     letti: 'Matrimoniale, 2 singoli e letto a castello',
@@ -35,7 +35,7 @@ window.SISTEMAZIONI = [
     frigo: 'Sì',
   },
   {
-    id: 'fenicottero', motore: 91, bagno: 'Bagno diviso in due: doccia e lavabo da una parte, WC dall’altra', nome: 'Casa mobile Fenicottero', tipo: 'casa', pagina: null,
+    id: 'fenicottero', motore: 91, bagno: 'Bagno diviso in due: doccia e lavabo da una parte, WC dall’altra', nome: 'Casa mobile Fenicottero', tipo: 'casa', pagina: 'casa-mobile-fenicottero.html',
     foto: 'fenicottero', foto2: 'fenicottero-interno',
     persone: 6, mq: 34, camere: 3,
     letti: 'Matrimoniale e 4 singoli',
@@ -45,7 +45,7 @@ window.SISTEMAZIONI = [
     frigo: '160 l + freezer 30 l',
   },
   {
-    id: 'fenicottero-plus', motore: 94, bagno: 'Bagno diviso in due: doccia e lavabo da una parte, WC dall’altra', nome: 'Casa mobile Fenicottero Plus', tipo: 'casa', pagina: null,
+    id: 'fenicottero-plus', motore: 94, bagno: 'Bagno diviso in due: doccia e lavabo da una parte, WC dall’altra', nome: 'Casa mobile Fenicottero Plus', tipo: 'casa', pagina: 'casa-mobile-fenicottero-plus.html',
     foto: 'fenicottero-plus', foto2: 'fenicottero-plus-interno',
     persone: 6, mq: 36.4, camere: 3,
     letti: 'Matrimoniale e 4 singoli',
@@ -55,7 +55,7 @@ window.SISTEMAZIONI = [
     frigo: '160 l + freezer 30 l',
   },
   {
-    id: 'tenda-safari', motore: 105, bagno: 'Bagno privato con doccia, WC e lavabo', nome: 'Tenda Lodge Safari', tipo: 'tenda', pagina: null,
+    id: 'tenda-safari', motore: 105, bagno: 'Bagno privato con doccia, WC e lavabo', nome: 'Tenda Lodge Safari', tipo: 'tenda', pagina: 'tenda-lodge-safari.html',
     foto: 'tenda-safari', foto2: 'tenda-safari-interno',
     persone: 5, mq: 27, camere: 2,
     letti: 'Matrimoniale, singolo e letto a castello',
@@ -65,7 +65,7 @@ window.SISTEMAZIONI = [
     frigo: 'Sì',
   },
   {
-    id: 'tenda-oasi', motore: 5, bagno: 'Bagno privato con doccia, WC e lavabo', nome: 'Tenda Lodge Oasi', tipo: 'tenda', pagina: null,
+    id: 'tenda-oasi', motore: 5, bagno: 'Bagno privato con doccia, WC e lavabo', nome: 'Tenda Lodge Oasi', tipo: 'tenda', pagina: 'tenda-lodge-oasi.html',
     foto: 'tenda-oasi', foto2: 'tenda-oasi-interno',
     persone: 5, mq: 27, camere: 2,
     letti: 'Matrimoniale, singolo e letto a castello',

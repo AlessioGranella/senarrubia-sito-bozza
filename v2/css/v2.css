@@ -372,3 +372,6 @@
 .centro { text-align: center; margin-inline: auto; }
 .sotto-titolo { color: var(--se-fg-muted); font-weight: 500; max-width: 60ch; margin: 0; }
 .cassetto-aperto body { overflow: hidden; }
+
+/* Scheda alloggio: ambiente senza foto (da avere dalla struttura) */
+.ambiente__foto--vuota { display: grid; place-items: center; background: color-mix(in srgb, var(--se-cielo) 12%, var(--se-bianco)); outline: 1.5px dashed color-mix(in srgb, var(--se-cielo) 90%, var(--se-nero)); outline-offset: -1.5px; }

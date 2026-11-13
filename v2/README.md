@@ -30,3 +30,11 @@ Le coordinate di zone e servizi sulla mappa sono in `js/mappa.js`.
 - PDF: regolamento pet, regolamento e orari piscina, calendario raccolta differenziata
 - Offerte 2027
 - Casella email a cui collegare il modulo «Lavora con noi»
+
+## Schede alloggio (13/11/2026)
+
+- `casa-mobile-mirto.html` è fatta a mano (ha la pianta disegnata).
+- Le altre 6 schede (Sunset Comfort, Sunset Comfort Plus, Fenicottero, Fenicottero Plus, Tenda Lodge Safari, Tenda Lodge Oasi) si generano con `python3 genera-schede.py`: testi e foto stanno lì dentro, il comportamento in `js/scheda.js`. Non modificare a mano gli HTML generati.
+- Il modulo «Verifica disponibilità» di ogni scheda apre il motore con l'alloggio in cima (`data-prenota="<id>"` → `productsel`, ID in `motore` di `js/dati.js`).
+- Foto: la prima è quella ad alta risoluzione di `../assets/foto`, le altre sono quelle ufficiali del motore (850 px) in `img/alloggi/<id>/`. Da sostituire con gli originali.
+- Da avere dalla struttura: piante delle 6 sistemazioni, zona e distanze, foto della cameretta di Sunset Comfort, del soggiorno di Sunset Comfort Plus e del bagno della Tenda Safari.
