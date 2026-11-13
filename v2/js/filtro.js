@@ -84,7 +84,7 @@
         <ul class="tratti">${tratti(s).map(([i, t, k]) => `<li data-k="${k}">${ic(i)}${t}</li>`).join('')}</ul>
         <div class="alloggio__piede">
           <a class="link-freccia" href="${pagina(s)}">Scopri ${ic('freccia')}</a>
-          <a class="btn btn--pieno" href="${MOTORE.link({ prodotto: s.motore })}" target="_blank" rel="noopener">Verifica date</a>
+          <button type="button" class="btn btn--pieno" data-apri="cassetto-date" data-alloggio="${s.id}">Verifica date</button>
         </div>
       </div>
     </article>`).join('') + `
@@ -178,6 +178,19 @@
     if (st.serve.size) p.set('serve', [...st.serve].join(','));
     history.replaceState(null, '', location.pathname + (p.toString() ? '?' + p : '') + location.hash);
   }
+
+  // V2: «Verifica date» apre il cassetto con l'alloggio della card e gli ospiti del filtro.
+  // Il cassetto lo apre sito.js ([data-apri]); qui si prepara il modulo prima che si veda.
+  $ris.addEventListener('click', e => {
+    const b = e.target.closest('[data-alloggio]'); if (!b) return;
+    const s = S.find(x => x.id === b.dataset.alloggio), f = document.getElementById('form-date');
+    f.dataset.prenota = s.id;
+    f.setAttribute('aria-label', `Verifica disponibilità: ${s.nome}`);
+    document.getElementById('date-nome').textContent = s.nome;
+    document.getElementById('date-posti').textContent = `Fino a ${s.persone} persone`;
+    if (f.stato) { f.stato.adulti = Math.min(st.ospiti, s.persone); f.stato.bambini = 0; f.disegna(); }
+    f.querySelector('[data-errore]').textContent = '';
+  });
 
   // V2: bottone «i» sulla foto apre la scheda in breve
   $ris.addEventListener('click', e => {

@@ -375,3 +375,5 @@
 
 /* Scheda alloggio: ambiente senza foto (da avere dalla struttura) */
 .ambiente__foto--vuota { display: grid; place-items: center; background: color-mix(in srgb, var(--se-cielo) 12%, var(--se-bianco)); outline: 1.5px dashed color-mix(in srgb, var(--se-cielo) 90%, var(--se-nero)); outline-offset: -1.5px; }
+.box-prenota--cassetto { position: static; border: 0; box-shadow: none; padding: 18px 0 0; }
+.box-prenota--cassetto .box-prenota__date label, .box-prenota--cassetto .box-prenota__date input { min-width: 0; }

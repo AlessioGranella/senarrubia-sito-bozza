@@ -38,3 +38,4 @@ Le coordinate di zone e servizi sulla mappa sono in `js/mappa.js`.
 - Il modulo «Verifica disponibilità» di ogni scheda apre il motore con l'alloggio in cima (`data-prenota="<id>"` → `productsel`, ID in `motore` di `js/dati.js`).
 - Foto: la prima è quella ad alta risoluzione di `../assets/foto`, le altre sono quelle ufficiali del motore (850 px) in `img/alloggi/<id>/`. Da sostituire con gli originali.
 - Da avere dalla struttura: piante delle 6 sistemazioni, zona e distanze, foto della cameretta di Sunset Comfort, del soggiorno di Sunset Comfort Plus e del bagno della Tenda Safari.
+- Pagina Sistemazioni: «Verifica date» sulle card apre il cassetto `#cassetto-date` con l'alloggio della card e gli ospiti del filtro (come adulti); da lì il motore si apre con quell'alloggio in cima.

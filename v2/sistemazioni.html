@@ -130,6 +130,32 @@
   <div class="cassetto__corpo"><dl class="lista-def" id="condizioni"></dl><h3>Documenti</h3><ul class="documenti" id="documenti"></ul></div>
 </aside>
 
+<!-- V2 · date e ospiti per l'alloggio scelto: apre il motore con quell'alloggio in cima -->
+<aside class="cassetto" id="cassetto-date" role="dialog" aria-modal="true" aria-labelledby="t-date" hidden>
+  <div class="cassetto__testa"><h2 id="t-date">Verifica le date</h2><button type="button" class="tondo cassetto__chiudi" aria-label="Chiudi"><svg class="ic"><use href="../assets/icone/sistemazione.svg#chiudi"/></svg></button></div>
+  <div class="cassetto__corpo">
+    <form class="box-prenota box-prenota--cassetto" id="form-date" data-prenota="" novalidate aria-label="Verifica disponibilità">
+      <div class="box-prenota__testa"><strong id="date-nome">Sistemazione</strong><span id="date-posti"></span></div>
+      <div class="box-prenota__date">
+        <label>Arrivo<input type="date" data-arrivo required></label>
+        <label>Partenza<input type="date" data-partenza required></label>
+      </div>
+      <div class="contatore" data-conta="adulti">
+        <span class="contatore__nome">Adulti<small>Dai 18 anni</small></span>
+        <span class="contatore__ctrl"><button type="button" class="tondo" data-meno aria-label="Meno adulti"><svg class="ic"><use href="../assets/icone/sistemazione.svg#meno"/></svg></button><output>2</output><button type="button" class="tondo" data-piu aria-label="Più adulti"><svg class="ic"><use href="../assets/icone/sistemazione.svg#piu"/></svg></button></span>
+      </div>
+      <div class="contatore" data-conta="bambini">
+        <span class="contatore__nome">Bambini<small>Da 0 a 17 anni</small></span>
+        <span class="contatore__ctrl"><button type="button" class="tondo" data-meno aria-label="Meno bambini"><svg class="ic"><use href="../assets/icone/sistemazione.svg#meno"/></svg></button><output>0</output><button type="button" class="tondo" data-piu aria-label="Più bambini"><svg class="ic"><use href="../assets/icone/sistemazione.svg#piu"/></svg></button></span>
+      </div>
+      <div class="eta-bimbi" data-eta hidden></div>
+      <p class="box-prenota__errore" data-errore role="alert"></p>
+      <button type="submit" class="btn btn--pieno">Verifica disponibilità e prezzi</button>
+      <p class="box-prenota__nota">Si apre il nostro sistema di prenotazione, con questa sistemazione per prima.<br>Preferisci parlarci? <a href="https://www.senarrubia.com/richiesta-disponibilita/" target="_blank" rel="noopener">Richiedi un preventivo</a></p>
+    </form>
+  </div>
+</aside>
+
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
