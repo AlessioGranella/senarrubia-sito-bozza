@@ -5,7 +5,7 @@
 
 window.SISTEMAZIONI = [
   {
-    id: 'mirto', bagno: 'Bagno con doccia e lavabo, WC in un ambiente a parte', nome: 'Casa mobile Mirto', tipo: 'casa', pagina: 'casa-mobile-mirto.html',
+    id: 'mirto', motore: 71, bagno: 'Bagno con doccia e lavabo, WC in un ambiente a parte', nome: 'Casa mobile Mirto', tipo: 'casa', pagina: 'casa-mobile-mirto.html',
     foto: 'mirto-esterno', foto2: 'mirto-soggiorno',
     persone: 5, mq: 26, camere: 2,
     letti: 'Matrimoniale, 2 singoli e divano letto',
@@ -15,7 +15,7 @@ window.SISTEMAZIONI = [
     frigo: '204 l con ghiacciaia',
   },
   {
-    id: 'sunset-comfort', bagno: 'Bagno privato con WC, doccia e lavabo', nome: 'Casa mobile Sunset Comfort', tipo: 'casa', pagina: null,
+    id: 'sunset-comfort', motore: 50, bagno: 'Bagno privato con WC, doccia e lavabo', nome: 'Casa mobile Sunset Comfort', tipo: 'casa', pagina: null,
     foto: 'sunset-comfort', foto2: 'sunset-comfort',
     persone: 5, mq: 24, camere: 2,
     letti: 'Matrimoniale, 2 singoli e letto a soppalco',
@@ -25,7 +25,7 @@ window.SISTEMAZIONI = [
     frigo: '93 l',
   },
   {
-    id: 'sunset-comfort-plus', bagno: 'Bagno privato con WC, doccia e lavabo', nome: 'Casa mobile Sunset Comfort Plus', tipo: 'casa', pagina: null,
+    id: 'sunset-comfort-plus', motore: 56, bagno: 'Bagno privato con WC, doccia e lavabo', nome: 'Casa mobile Sunset Comfort Plus', tipo: 'casa', pagina: null,
     foto: 'sunset-comfort-plus', foto2: 'sunset-comfort-plus',
     persone: 6, mq: 30, camere: 3,
     letti: 'Matrimoniale, 2 singoli e letto a castello',
@@ -35,7 +35,7 @@ window.SISTEMAZIONI = [
     frigo: 'Sì',
   },
   {
-    id: 'fenicottero', bagno: 'Bagno diviso in due: doccia e lavabo da una parte, WC dall’altra', nome: 'Casa mobile Fenicottero', tipo: 'casa', pagina: null,
+    id: 'fenicottero', motore: 91, bagno: 'Bagno diviso in due: doccia e lavabo da una parte, WC dall’altra', nome: 'Casa mobile Fenicottero', tipo: 'casa', pagina: null,
     foto: 'fenicottero', foto2: 'fenicottero-interno',
     persone: 6, mq: 34, camere: 3,
     letti: 'Matrimoniale e 4 singoli',
@@ -45,7 +45,7 @@ window.SISTEMAZIONI = [
     frigo: '160 l + freezer 30 l',
   },
   {
-    id: 'fenicottero-plus', bagno: 'Bagno diviso in due: doccia e lavabo da una parte, WC dall’altra', nome: 'Casa mobile Fenicottero Plus', tipo: 'casa', pagina: null,
+    id: 'fenicottero-plus', motore: 94, bagno: 'Bagno diviso in due: doccia e lavabo da una parte, WC dall’altra', nome: 'Casa mobile Fenicottero Plus', tipo: 'casa', pagina: null,
     foto: 'fenicottero-plus', foto2: 'fenicottero-plus-interno',
     persone: 6, mq: 36.4, camere: 3,
     letti: 'Matrimoniale e 4 singoli',
@@ -55,7 +55,7 @@ window.SISTEMAZIONI = [
     frigo: '160 l + freezer 30 l',
   },
   {
-    id: 'tenda-safari', bagno: 'Bagno privato con doccia, WC e lavabo', nome: 'Tenda Lodge Safari', tipo: 'tenda', pagina: null,
+    id: 'tenda-safari', motore: 105, bagno: 'Bagno privato con doccia, WC e lavabo', nome: 'Tenda Lodge Safari', tipo: 'tenda', pagina: null,
     foto: 'tenda-safari', foto2: 'tenda-safari-interno',
     persone: 5, mq: 27, camere: 2,
     letti: 'Matrimoniale, singolo e letto a castello',
@@ -65,7 +65,7 @@ window.SISTEMAZIONI = [
     frigo: 'Sì',
   },
   {
-    id: 'tenda-oasi', bagno: 'Bagno privato con doccia, WC e lavabo', nome: 'Tenda Lodge Oasi', tipo: 'tenda', pagina: null,
+    id: 'tenda-oasi', motore: 5, bagno: 'Bagno privato con doccia, WC e lavabo', nome: 'Tenda Lodge Oasi', tipo: 'tenda', pagina: null,
     foto: 'tenda-oasi', foto2: 'tenda-oasi-interno',
     persone: 5, mq: 27, camere: 2,
     letti: 'Matrimoniale, singolo e letto a castello',
@@ -77,12 +77,14 @@ window.SISTEMAZIONI = [
 ];
 
 /* Motore di prenotazione MyGuestCare (Mycomp): non si cambia, ci si collega con un link.
-   Parametri verificati sul motore il 9/11/2026 (vedi ../Integrazione MyGuestCare/). */
+   Parametri verificati sul motore il 9/11/2026 (vedi ../Integrazione MyGuestCare/).
+   prodotto = ID dell'alloggio sul motore (campo `motore` in SISTEMAZIONI): diventa
+   productsel e mette quell'alloggio per primo nei risultati (verificato il 13/11/2026). */
 window.MOTORE = {
   url: 'https://booking.senarrubia.com/.eshop',
   cliente: 'senaarrubia',
   preventivo: 'https://www.senarrubia.com/richiesta-disponibilita/',
-  link({ arrivo, partenza, adulti = 2, bambini = 0, eta = [] } = {}) {
+  link({ arrivo, partenza, adulti = 2, bambini = 0, eta = [], prodotto } = {}) {
     const lingue = { it: 1, en: 2, fr: 3, de: 4, es: 5 };
     const p = new URLSearchParams({
       idcliente: this.cliente, idvendor: '1', orderBy: '2', fast: '1', invcart: '1',
@@ -94,6 +96,8 @@ window.MOTORE = {
       p.set('adulti1', adulti); p.set('bambini1', bambini);
       eta.forEach((a, j) => p.set('etabambino1' + (j + 1), a));
     }
+    // productsel conta solo nella pagina risultati: servono act/alltratt/noFilterUnit come nel form del sito attuale
+    if (prodotto) { p.set('act', 'result-strutture'); p.set('alltratt', '1'); p.set('noFilterUnit', '1'); p.set('productsel', prodotto); }
     return this.url + '?' + p.toString().replace(/%2F/g, '/');
   },
 };

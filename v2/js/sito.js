@@ -109,7 +109,8 @@
   addEventListener('keydown', e => { if (e.key === 'Escape' && R.classList.contains('menu-aperto')) bm.click(); });
 
   /* ------------------------------------------ prenotazione (motore MyGuestCare)
-     Ogni [data-prenota] ha date, adulti, bambini ed età. Al submit apre il motore. */
+     Ogni [data-prenota] ha date, adulti, bambini ed età. Al submit apre il motore.
+     data-prenota="mirto" (id di SISTEMAZIONI) apre il motore con quell'alloggio per primo. */
   const iso = d => d.toISOString().slice(0, 10);
   const opzioni = (a, b, sel) => Array.from({ length: b - a + 1 }, (_, i) => a + i).map(n => `<option value="${n}"${n === sel ? ' selected' : ''}>${n}</option>`).join('');
   window.montaPrenota = function (f) {
@@ -156,7 +157,8 @@
       if ($p.value <= $a.value) return $err.textContent = 'La partenza deve essere dopo l’arrivo.';
       const eta = $eta ? [...$eta.querySelectorAll('select')].map(s => s.value) : [];
       if (eta.includes('')) { pop?.classList.add('is-aperto'); return $err.textContent = 'Indica l’età di ogni bambino.'; }
-      window.open(MOTORE.link({ arrivo: $a.value, partenza: $p.value, adulti: st.adulti, bambini: st.bambini, eta }), '_blank', 'noopener');
+      const prodotto = (window.SISTEMAZIONI || []).find(x => x.id === f.dataset.prenota)?.motore;
+      window.open(MOTORE.link({ arrivo: $a.value, partenza: $p.value, adulti: st.adulti, bambini: st.bambini, eta, prodotto }), '_blank', 'noopener');
     });
     f.stato = st; f.disegna = disegna;
     disegna();

@@ -84,7 +84,7 @@
         <ul class="tratti">${tratti(s).map(([i, t, k]) => `<li data-k="${k}">${ic(i)}${t}</li>`).join('')}</ul>
         <div class="alloggio__piede">
           <a class="link-freccia" href="${pagina(s)}">Scopri ${ic('freccia')}</a>
-          <a class="btn btn--pieno" href="${MOTORE.link()}" target="_blank" rel="noopener">Verifica date</a>
+          <a class="btn btn--pieno" href="${MOTORE.link({ prodotto: s.motore })}" target="_blank" rel="noopener">Verifica date</a>
         </div>
       </div>
     </article>`).join('') + `
